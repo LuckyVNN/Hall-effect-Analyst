@@ -40,7 +40,7 @@ QWidget {
     color: #0f172a;
 }
 QTabWidget::pane {
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     background: #ffffff;
     border-radius: 6px;
 }
@@ -65,19 +65,37 @@ QGroupBox {
     font-size: 12px;
     font-weight: bold;
     color: #1e293b;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
     margin-top: 14px;
-    padding-top: 10px;
+    padding-top: 12px;
     background-color: #ffffff;
 }
 QGroupBox::title {
     subcontrol-origin: margin;
     subcontrol-position: top left;
     left: 10px;
-    padding: 0 6px;
-    background-color: #ffffff;
-    color: #0f172a;
+    padding: 2px 8px;
+    background-color: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    color: #1e293b;
+}
+QPushButton {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+QPushButton:hover {
+    background-color: #e2e8f0;
+    border-color: #2563eb;
+}
+QPushButton:pressed {
+    background-color: #cbd5e1;
 }
 QScrollArea {
     border: none;
@@ -85,7 +103,7 @@ QScrollArea {
 }
 QTableWidget {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 6px;
     gridline-color: #f1f5f9;
     selection-background-color: #e0e7ff;
@@ -98,7 +116,7 @@ QHeaderView::section {
     font-weight: 600;
     font-size: 11px;
     border: none;
-    border-bottom: 2px solid #e2e8f0;
+    border-bottom: 2px solid #cbd5e1;
     padding: 6px 8px;
 }
 QSpinBox, QDoubleSpinBox, QComboBox, QLineEdit {
@@ -137,31 +155,31 @@ QProgressBar::chunk {
 }
 QFrame#legend_bar {
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #cbd5e1;
     border-radius: 6px;
 }
 """
 
 DARK_STYLE = """
 QMainWindow {
-    background-color: #0b0f19;
+    background-color: #080d1a;
 }
 QWidget {
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
     color: #f1f5f9;
 }
 QTabWidget::pane {
-    border: 1px solid #1e293b;
-    background: #0f172a;
+    border: 1px solid #1a2744;
+    background: #0d1527;
     border-radius: 6px;
 }
 QTabBar::tab {
     font-size: 13px;
     font-weight: 600;
     padding: 8px 24px;
-    background: #1e293b;
+    background: #101c33;
     color: #94a3b8;
-    border: 1px solid #334155;
+    border: 1px solid #1a2744;
     border-bottom: none;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -176,48 +194,67 @@ QGroupBox {
     font-size: 12px;
     font-weight: bold;
     color: #e2e8f0;
-    border: 1px solid #334155;
+    border: 1px solid #1c2b48;
     border-radius: 8px;
     margin-top: 14px;
-    padding-top: 10px;
-    background-color: #131b2e;
+    padding-top: 12px;
+    background-color: #0f182c;
 }
 QGroupBox::title {
     subcontrol-origin: margin;
     subcontrol-position: top left;
     left: 10px;
-    padding: 0 6px;
-    background-color: #131b2e;
+    padding: 2px 8px;
+    background-color: #17243c;
+    border: 1px solid #25395c;
+    border-radius: 4px;
     color: #38bdf8;
+}
+QPushButton {
+    background-color: #16233b;
+    color: #f1f5f9;
+    border: 1px solid #25395c;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+QPushButton:hover {
+    background-color: #1f3050;
+    border-color: #38bdf8;
+    color: #ffffff;
+}
+QPushButton:pressed {
+    background-color: #0d1727;
 }
 QScrollArea {
     border: none;
     background: transparent;
 }
 QTableWidget {
-    background-color: #131b2e;
-    border: 1px solid #334155;
+    background-color: #0d1527;
+    border: 1px solid #1a2744;
     border-radius: 6px;
-    gridline-color: #1e293b;
+    gridline-color: #16233b;
     selection-background-color: #0369a1;
     selection-color: #ffffff;
     color: #f1f5f9;
     font-size: 12px;
 }
 QHeaderView::section {
-    background-color: #0f172a;
+    background-color: #080d1a;
     color: #94a3b8;
     font-weight: 600;
     font-size: 11px;
     border: none;
-    border-bottom: 2px solid #334155;
+    border-bottom: 2px solid #1a2744;
     padding: 6px 8px;
 }
 QSpinBox, QDoubleSpinBox, QComboBox, QLineEdit {
-    border: 1px solid #334155;
+    border: 1px solid #25395c;
     border-radius: 5px;
     padding: 4px 8px;
-    background: #1e293b;
+    background: #111c30;
     color: #f1f5f9;
     font-size: 12px;
 }
@@ -225,7 +262,7 @@ QSpinBox:focus, QDoubleSpinBox:focus, QComboBox:focus, QLineEdit:focus {
     border: 1.5px solid #38bdf8;
 }
 QSplitter::handle {
-    background-color: #334155;
+    background-color: #1a2744;
     width: 5px;
     border-radius: 2px;
     margin: 1px;
@@ -234,10 +271,10 @@ QSplitter::handle:hover {
     background-color: #38bdf8;
 }
 QProgressBar {
-    border: 1px solid #334155;
+    border: 1px solid #25395c;
     border-radius: 6px;
     text-align: center;
-    background-color: #1e293b;
+    background-color: #111c30;
     font-weight: 600;
     font-size: 11px;
     color: #f1f5f9;
@@ -248,11 +285,112 @@ QProgressBar::chunk {
     border-radius: 5px;
 }
 QFrame#legend_bar {
-    background-color: #131b2e;
-    border: 1px solid #334155;
+    background-color: #0d1527;
+    border: 1px solid #1a2744;
     border-radius: 6px;
 }
 """
+
+def format_sci(val, precision=3):
+    """Format scientific float with Unicode superscripts for publication clarity."""
+    if val is None or (isinstance(val, (int, float)) and np.isnan(val)):
+        return "N/A"
+    try:
+        s = f"{float(val):.{precision}e}"
+        base, exp = s.split('e')
+        exp_int = int(exp)
+        superscripts = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹','-':'⁻','+':''}
+        sup_exp = "".join(superscripts.get(c, c) for c in str(exp_int))
+        return f"{base} × 10{sup_exp}"
+    except Exception:
+        return str(val)
+
+class LuxuryThemeSlider(QtWidgets.QAbstractButton):
+    """Luxury sliding toggle between Sun (Light Lab Mode) and Moon (Dark Cryo Mode)."""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setCheckable(True)
+        self.setChecked(False)
+        self.setFixedSize(74, 32)
+        self.setCursor(QtCore.Qt.CursorShape.PointingHandCursor)
+        self.setToolTip("Toggle Theme (☀️ Light Lab Mode / 🌙 Dark Cryo Mode)")
+        self._pos = 0.0
+
+        self.anim = QtCore.QPropertyAnimation(self, b"slider_pos", self)
+        self.anim.setDuration(180)
+        self.anim.setEasingCurve(QtCore.QEasingCurve.Type.InOutQuad)
+        self.toggled.connect(self._on_toggled)
+
+    def _on_toggled(self, checked):
+        self.anim.stop()
+        self.anim.setStartValue(self._pos)
+        self.anim.setEndValue(1.0 if checked else 0.0)
+        self.anim.start()
+
+    def get_slider_pos(self):
+        return self._pos
+
+    def set_slider_pos(self, p):
+        self._pos = p
+        self.update()
+
+    slider_pos = QtCore.pyqtProperty(float, get_slider_pos, set_slider_pos)
+
+    def paintEvent(self, event):
+        painter = QtGui.QPainter(self)
+        painter.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
+
+        w, h = self.width(), self.height()
+        radius = h / 2.0
+        track_rect = QtCore.QRectF(1, 1, w - 2, h - 2)
+
+        if self.isChecked():
+            track_brush = QtGui.QBrush(QtGui.QColor("#0d1829"))
+            track_pen = QtGui.QPen(QtGui.QColor("#243859"), 1.5)
+        else:
+            track_brush = QtGui.QBrush(QtGui.QColor("#e2e8f0"))
+            track_pen = QtGui.QPen(QtGui.QColor("#cbd5e1"), 1.5)
+
+        painter.setPen(track_pen)
+        painter.setBrush(track_brush)
+        painter.drawRoundedRect(track_rect, radius, radius)
+
+        font_icons = QtGui.QFont("Segoe UI Emoji", 10)
+        painter.setFont(font_icons)
+
+        # Left: Sun icon
+        painter.setPen(QtGui.QColor("#f59e0b" if not self.isChecked() else "#334155"))
+        painter.drawText(QtCore.QRectF(7, 1, 20, h), QtCore.Qt.AlignmentFlag.AlignCenter, "☀️")
+
+        # Right: Moon icon
+        painter.setPen(QtGui.QColor("#38bdf8" if self.isChecked() else "#94a3b8"))
+        painter.drawText(QtCore.QRectF(w - 27, 1, 20, h), QtCore.Qt.AlignmentFlag.AlignCenter, "🌙")
+
+        # Sliding Knob
+        knob_size = h - 6
+        knob_x = 3 + self._pos * (w - knob_size - 6)
+        knob_rect = QtCore.QRectF(knob_x, 3, knob_size, knob_size)
+
+        grad = QtGui.QLinearGradient(knob_rect.topLeft(), knob_rect.bottomRight())
+        if self.isChecked():
+            grad.setColorAt(0.0, QtGui.QColor("#0284c7"))
+            grad.setColorAt(1.0, QtGui.QColor("#0369a1"))
+            knob_pen = QtGui.QPen(QtGui.QColor("#38bdf8"), 1.2)
+        else:
+            grad.setColorAt(0.0, QtGui.QColor("#ffffff"))
+            grad.setColorAt(1.0, QtGui.QColor("#f8fafc"))
+            knob_pen = QtGui.QPen(QtGui.QColor("#cbd5e1"), 1.2)
+
+        painter.setPen(knob_pen)
+        painter.setBrush(QtGui.QBrush(grad))
+        painter.drawEllipse(knob_rect)
+
+        knob_font = QtGui.QFont("Segoe UI Emoji", 9)
+        painter.setFont(knob_font)
+        painter.setPen(QtGui.QColor("#ffffff" if self.isChecked() else "#d97706"))
+        icon_symbol = "🌙" if self.isChecked() else "☀️"
+        painter.drawText(knob_rect, QtCore.Qt.AlignmentFlag.AlignCenter, icon_symbol)
+
 
 class ColumnSelectorDialog(QtWidgets.QDialog):
     """Checkboard dialog allowing users to choose exactly which columns to export."""
@@ -375,47 +513,23 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         h_top = QtWidgets.QHBoxLayout()
         h_top.setContentsMargins(4, 2, 4, 2)
 
-        lbl_app_logo = QtWidgets.QLabel("🔬 <b>Hall Effect Measurement Studio</b> <span style='font-size: 11px; color: #64748b;'>| Research & Batch Edition</span>")
-        lbl_app_logo.setStyleSheet("font-size: 14px;")
+        lbl_app_logo = QtWidgets.QLabel("🔬 <b>Hall Effect Measurement Studio</b> <span style='font-size: 11px; color: #0284c7;'>| Trung Pham · SALD Laboratory · Phenikaa University</span>")
+        lbl_app_logo.setStyleSheet("font-size: 13.5px;")
         h_top.addWidget(lbl_app_logo)
 
         h_top.addStretch()
 
-        self.btn_theme_toggle = QtWidgets.QPushButton("🌙 Dark Cryo Mode")
-        self.btn_theme_toggle.setStyleSheet("""
-            QPushButton {
-                font-size: 12px;
-                font-weight: 600;
-                padding: 5px 14px;
-                border-radius: 5px;
-                border: 1px solid #cbd5e1;
-                background: #f1f5f9;
-                color: #1e293b;
-            }
-            QPushButton:hover {
-                background: #e2e8f0;
-            }
-        """)
-        self.btn_theme_toggle.clicked.connect(self.toggle_theme)
-        h_top.addWidget(self.btn_theme_toggle)
+        # Luxury Sun/Moon Animated Sliding Switch
+        self.theme_slider = LuxuryThemeSlider()
+        self.theme_slider.toggled.connect(self.on_theme_slider_toggled)
+        h_top.addWidget(self.theme_slider)
 
-        btn_top_info = QtWidgets.QPushButton("ℹ️ Physical Reference")
-        btn_top_info.setStyleSheet("""
-            QPushButton {
-                font-size: 12px;
-                font-weight: 600;
-                padding: 5px 12px;
-                border-radius: 5px;
-                border: 1px solid #cbd5e1;
-                background: #f1f5f9;
-                color: #1e293b;
-            }
-            QPushButton:hover {
-                background: #e2e8f0;
-            }
-        """)
-        btn_top_info.clicked.connect(self.open_info_dialog)
-        h_top.addWidget(btn_top_info)
+        # Unified Info button
+        self.btn_top_info = QtWidgets.QPushButton("ℹ️ Info")
+        self.btn_top_info.setToolTip("View Author, SALD Laboratory, GitHub repository & Physics Reference")
+        self.btn_top_info.setStyleSheet("font-size: 12px; font-weight: 600; padding: 5px 14px;")
+        self.btn_top_info.clicked.connect(self.open_info_dialog)
+        h_top.addWidget(self.btn_top_info)
 
         root_layout.addLayout(h_top)
 
@@ -530,7 +644,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.spin_rh.setValue(250.0)
         self.spin_rh.setSuffix(" Ω")
         self.spin_rh.valueChanged.connect(self.recalculate_all)
-        vdp_layout.addRow("R horizontal (Rh):", self.spin_rh)
+        vdp_layout.addRow("R horizontal (R<sub>h</sub>):", self.spin_rh)
 
         self.spin_rv = QtWidgets.QDoubleSpinBox()
         self.spin_rv.setRange(0.01, 1e7)
@@ -538,14 +652,14 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.spin_rv.setValue(250.0)
         self.spin_rv.setSuffix(" Ω")
         self.spin_rv.valueChanged.connect(self.recalculate_all)
-        vdp_layout.addRow("R vertical (Rv):", self.spin_rv)
+        vdp_layout.addRow("R vertical (R<sub>v</sub>):", self.spin_rv)
 
-        self.lbl_solved_rs = QtWidgets.QLabel("Rs: 1133.09 Ω/□")
+        self.lbl_solved_rs = QtWidgets.QLabel("R<sub>s</sub>: 1133.09 Ω/□")
         self.lbl_solved_rs.setStyleSheet("font-weight: bold; color: #084298;")
-        vdp_layout.addRow("Solved Rs:", self.lbl_solved_rs)
+        vdp_layout.addRow("Solved R<sub>s</sub>:", self.lbl_solved_rs)
 
-        self.lbl_vdp_ratio = QtWidgets.QLabel("Symmetry: 1.00")
-        vdp_layout.addRow("Rh / Rv Ratio:", self.lbl_vdp_ratio)
+        self.lbl_vdp_ratio = QtWidgets.QLabel("R<sub>h</sub> / R<sub>v</sub> Ratio: 1.00")
+        vdp_layout.addRow("R<sub>h</sub> / R<sub>v</sub> Ratio:", self.lbl_vdp_ratio)
 
         left_layout.addWidget(grp_vdp)
 
@@ -600,9 +714,9 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         right_layout.setSpacing(6)
 
         # Top instruction banner
-        banner = QtWidgets.QLabel("💡 <b>Direct On-Screen Dragging:</b> Grab the border lines to resize or click & drag inside any shaded zone to move it. Live 60 FPS recalculation!")
-        banner.setStyleSheet("background-color: #e8f4fd; color: #0c5460; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
-        right_layout.addWidget(banner)
+        self.banner = QtWidgets.QLabel("💡 <b>Direct On-Screen Dragging:</b> Grab the border lines to resize or click & drag inside any shaded zone to move it. Live 60 FPS recalculation!")
+        self.banner.setStyleSheet("background-color: #e8f4fd; color: #0c5460; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
+        right_layout.addWidget(self.banner)
 
         # Hardware-accelerated PlotWidget (60+ FPS)
         self.plot_widget = pg.PlotWidget()
@@ -629,7 +743,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.curve_raw = self.plot_widget.plot(name="Raw Voltage", pen=pg.mkPen(color=(190, 190, 190, 140), width=1))
         self.curve_active = self.plot_widget.plot(name="Measured Voltage", pen=pg.mkPen(color='#1f77b4', width=2))
         self.curve_baseline = self.plot_widget.plot(name="Fitted Baseline Drift", pen=pg.mkPen(color='#e377c2', width=2.5, style=QtCore.Qt.PenStyle.DashLine))
-        self.curve_delta = self.plot_widget.plot(name="ΔV Step (V_Hall)", pen=pg.mkPen(color='r', width=3), symbol='o', symbolSize=8, symbolBrush='r')
+        self.curve_delta = self.plot_widget.plot(name="ΔV Step (V<sub>H</sub>)", pen=pg.mkPen(color='r', width=3), symbol='o', symbolSize=8, symbolBrush='r')
 
         # DRAGGABLE REGIONS (LinearRegionItem)
         self.region_b1 = pg.LinearRegionItem(values=[10.0, 20.0], brush=pg.mkBrush(44, 160, 44, 45), pen=pg.mkPen(44, 160, 44, 180, width=1.5))
@@ -648,27 +762,11 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         right_layout.addWidget(self.create_legend_bar(self.plot_widget, is_batch=False))
         right_layout.addWidget(self.plot_widget, stretch=5)
 
-        # RESULTS DASHBOARD CARDS
-        res_group = QtWidgets.QGroupBox("Live Physical Results (Updates Instantly on Drag)")
-        res_layout = QtWidgets.QGridLayout(res_group)
+        # RESULTS DASHBOARD INSTRUMENT DECK
+        self.dashboard_single, self.card_vh, self.card_type, self.card_ns, self.card_n, self.card_mu, self.card_rho = self.create_physical_dashboard(is_batch=False)
+        right_layout.addWidget(self.dashboard_single["container"])
 
-        self.card_vh = self.create_metric_card("V_Hall (Step Height):", "-- mV", "-- µV")
-        self.card_type = self.create_metric_card("Carrier Type:", "--", "Sign of RH")
-        self.card_ns = self.create_metric_card("Sheet Density (ns):", "-- cm⁻²", "2D Density")
-        self.card_n = self.create_metric_card("Bulk Density (n):", "-- cm⁻³", "3D Density")
-        self.card_mu = self.create_metric_card("Hall Mobility (μ):", "-- cm²/V·s", "Transport Mobility")
-        self.card_rho = self.create_metric_card("Resistivity (ρ):", "-- Ω·cm", "van der Pauw")
-
-        res_layout.addWidget(self.card_vh["widget"], 0, 0)
-        res_layout.addWidget(self.card_type["widget"], 0, 1)
-        res_layout.addWidget(self.card_ns["widget"], 0, 2)
-        res_layout.addWidget(self.card_n["widget"], 1, 0)
-        res_layout.addWidget(self.card_mu["widget"], 1, 1)
-        res_layout.addWidget(self.card_rho["widget"], 1, 2)
-
-        right_layout.addWidget(res_group, stretch=2)
-
-        # BOTTOM ACTION BAR (Save Run + Export + Info)
+        # BOTTOM ACTION BAR (Save Run + Export)
         h_bottom = QtWidgets.QHBoxLayout()
         btn_log_run = QtWidgets.QPushButton("💾 Log This Measurement to Summary")
         btn_log_run.setStyleSheet("font-size: 13px; font-weight: bold; background-color: #198754; color: white; padding: 8px 14px; border-radius: 5px;")
@@ -679,11 +777,6 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         btn_view_log.setStyleSheet("font-size: 13px; font-weight: bold; background-color: #0d6efd; color: white; padding: 8px 14px; border-radius: 5px;")
         btn_view_log.clicked.connect(self.open_log_dialog)
         h_bottom.addWidget(btn_view_log)
-
-        btn_info = QtWidgets.QPushButton("ℹ️ Info & Theory Reference")
-        btn_info.setStyleSheet("font-size: 13px; font-weight: bold; background-color: #495057; color: white; padding: 8px 14px; border-radius: 5px;")
-        btn_info.clicked.connect(self.open_info_dialog)
-        h_bottom.addWidget(btn_info)
 
         right_layout.addLayout(h_bottom)
         self.single_splitter.addWidget(right_widget)
@@ -992,7 +1085,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.b_curve_raw = self.plot_b_manual.plot(name="Raw Voltage", pen=pg.mkPen(color=(190, 190, 190, 140), width=1))
         self.b_curve_active = self.plot_b_manual.plot(name="Measured Voltage", pen=pg.mkPen(color='#1f77b4', width=2))
         self.b_curve_baseline = self.plot_b_manual.plot(name="Fitted Drift Line", pen=pg.mkPen(color='#e377c2', width=2.5, style=QtCore.Qt.PenStyle.DashLine))
-        self.b_curve_delta = self.plot_b_manual.plot(name="ΔV Step (V_Hall)", pen=pg.mkPen(color='r', width=3), symbol='o', symbolSize=8, symbolBrush='r')
+        self.b_curve_delta = self.plot_b_manual.plot(name="ΔV Step (V<sub>H</sub>)", pen=pg.mkPen(color='r', width=3), symbol='o', symbolSize=8, symbolBrush='r')
 
         # Draggable Regions
         self.b_region_b1 = pg.LinearRegionItem(values=[10.0, 20.0], brush=pg.mkBrush(44, 160, 44, 45), pen=pg.mkPen(44, 160, 44, 180, width=1.5))
@@ -1011,25 +1104,9 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         sm_layout.addWidget(self.create_legend_bar(self.plot_b_manual, is_batch=True))
         sm_layout.addWidget(self.plot_b_manual, stretch=5)
 
-        # 5. Live Physical Results Cards
-        b_res_group = QtWidgets.QGroupBox("Live Physical Results (Updates Instantly on Drag)")
-        b_res_layout = QtWidgets.QGridLayout(b_res_group)
-
-        self.b_card_vh = self.create_metric_card("V_Hall (Step Height):", "-- mV", "-- µV")
-        self.b_card_type = self.create_metric_card("Carrier Type:", "--", "Sign of RH")
-        self.b_card_ns = self.create_metric_card("Sheet Density (ns):", "-- cm⁻²", "2D Density")
-        self.b_card_n = self.create_metric_card("Bulk Density (n):", "-- cm⁻³", "3D Density")
-        self.b_card_mu = self.create_metric_card("Hall Mobility (μ):", "-- cm²/V·s", "Transport Mobility")
-        self.b_card_rho = self.create_metric_card("Resistivity (ρ):", "-- Ω·cm", "van der Pauw")
-
-        b_res_layout.addWidget(self.b_card_vh["widget"], 0, 0)
-        b_res_layout.addWidget(self.b_card_type["widget"], 0, 1)
-        b_res_layout.addWidget(self.b_card_ns["widget"], 0, 2)
-        b_res_layout.addWidget(self.b_card_n["widget"], 1, 0)
-        b_res_layout.addWidget(self.b_card_mu["widget"], 1, 1)
-        b_res_layout.addWidget(self.b_card_rho["widget"], 1, 2)
-
-        sm_layout.addWidget(b_res_group, stretch=2)
+        # 5. Live Physical Results Dashboard
+        self.dashboard_batch, self.b_card_vh, self.b_card_type, self.b_card_ns, self.b_card_n, self.b_card_mu, self.b_card_rho = self.create_physical_dashboard(is_batch=True)
+        sm_layout.addWidget(self.dashboard_batch["container"])
 
         self.b_sub_tabs.addTab(sub_tab_manual, "🎯 Manual Extraction Studio")
 
@@ -1164,6 +1241,77 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.all_metric_cards.append(card)
         return card
 
+    def create_physical_dashboard(self, is_batch=False):
+        """
+        Creates an executive, laboratory-grade physical results instrument panel.
+        Featuring a top status ribbon (Carrier type glowing badge + baseline drift)
+        and a horizontal deck of 5 sleek metric cards (VH, ns, n, mu, rho).
+        """
+        container = QtWidgets.QFrame()
+        container.setObjectName("physical_dashboard")
+
+        main_vbox = QtWidgets.QVBoxLayout(container)
+        main_vbox.setContentsMargins(10, 8, 10, 8)
+        main_vbox.setSpacing(8)
+
+        # 1. Top Status Ribbon
+        h_ribbon = QtWidgets.QHBoxLayout()
+        h_ribbon.setContentsMargins(2, 0, 2, 0)
+        h_ribbon.setSpacing(10)
+
+        lbl_head = QtWidgets.QLabel("⚡ <b>Live Physical Parameters</b> <span style='font-size: 11px; opacity: 0.75;'>| Real-time 60 FPS Extraction</span>")
+        lbl_head.setStyleSheet("font-size: 12px; font-weight: bold;")
+        h_ribbon.addWidget(lbl_head)
+
+        h_ribbon.addStretch()
+
+        lbl_drift = QtWidgets.QLabel("Drift: -- µV/s")
+        lbl_drift.setStyleSheet("font-size: 11px; font-family: 'Consolas', 'Segoe UI Mono', monospace; padding: 3px 10px; border-radius: 10px;")
+        h_ribbon.addWidget(lbl_drift)
+
+        lbl_carrier = QtWidgets.QLabel("● Carrier Type: --")
+        lbl_carrier.setStyleSheet("font-size: 12px; font-weight: bold; padding: 3px 12px; border-radius: 12px;")
+        h_ribbon.addWidget(lbl_carrier)
+
+        main_vbox.addLayout(h_ribbon)
+
+        # 2. Horizontal Deck of 5 Metric Cards
+        h_cards = QtWidgets.QHBoxLayout()
+        h_cards.setContentsMargins(0, 0, 0, 0)
+        h_cards.setSpacing(8)
+
+        card_vh = self.create_metric_card("Hall Voltage (V<sub>H</sub>)", "-- mV", "-- µV")
+        card_ns = self.create_metric_card("Sheet Density (n<sub>s</sub>)", "-- cm⁻²", "2D Density")
+        card_n = self.create_metric_card("Bulk Density (n)", "-- cm⁻³", "3D Density")
+        card_mu = self.create_metric_card("Hall Mobility (μ)", "-- cm²/V·s", "Transport Mobility")
+        card_rho = self.create_metric_card("Bulk Resistivity (ρ)", "-- Ω·cm", "van der Pauw")
+
+        h_cards.addWidget(card_vh["widget"])
+        h_cards.addWidget(card_ns["widget"])
+        h_cards.addWidget(card_n["widget"])
+        h_cards.addWidget(card_mu["widget"])
+        h_cards.addWidget(card_rho["widget"])
+
+        main_vbox.addLayout(h_cards)
+
+        # Build card_type dictionary maintaining exact compatibility with existing codebase and tests
+        card_type = {
+            "widget": lbl_carrier,
+            "title": lbl_head,
+            "main": lbl_carrier,
+            "sub": lbl_drift
+        }
+
+        dashboard_dict = {
+            "container": container,
+            "header": lbl_head,
+            "drift": lbl_drift,
+            "carrier": lbl_carrier,
+            "cards": [card_vh, card_ns, card_n, card_mu, card_rho]
+        }
+
+        return dashboard_dict, card_vh, card_type, card_ns, card_n, card_mu, card_rho
+
     def create_legend_bar(self, plot_widget, is_batch=False):
         legend_bar = QtWidgets.QFrame()
         legend_bar.setObjectName("legend_bar")
@@ -1201,7 +1349,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
 
         leg_layout.addWidget(make_legend_item("#1f77b4", "Measured V"))
         leg_layout.addWidget(make_legend_item("#e377c2", "Fitted Drift Line", is_dash=True))
-        leg_layout.addWidget(make_legend_item("#d62728", "ΔV Step (V_Hall)", is_symbol=True))
+        leg_layout.addWidget(make_legend_item("#d62728", "ΔV Step (V<sub>H</sub>)", is_symbol=True))
         leg_layout.addWidget(make_legend_item("rgba(44, 160, 44, 140)", "Base 1 & 2 (Drag to fit)", is_box=True))
         leg_layout.addWidget(make_legend_item("rgba(255, 127, 14, 170)", "Pulse Plateau (B ON)", is_box=True))
         leg_layout.addStretch()
@@ -1262,29 +1410,23 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                 pt = vb.mapSceneToView(pos)
                 self.lbl_coord_batch.setText(f"📍 t = {pt.x():.2f} s | V = {pt.y():.4f} mV")
 
+    def on_theme_slider_toggled(self, checked):
+        self.apply_theme(checked)
+
     def toggle_theme(self):
         self.apply_theme(not self.is_dark_theme)
 
     def apply_theme(self, is_dark):
         self.is_dark_theme = is_dark
+        if hasattr(self, 'theme_slider'):
+            self.theme_slider.blockSignals(True)
+            self.theme_slider.setChecked(is_dark)
+            self.theme_slider.set_slider_pos(1.0 if is_dark else 0.0)
+            self.theme_slider.blockSignals(False)
+
         if is_dark:
             self.setStyleSheet(DARK_STYLE)
-            self.btn_theme_toggle.setText("☀️ Light Lab Mode")
-            self.btn_theme_toggle.setStyleSheet("""
-                QPushButton {
-                    font-size: 12px;
-                    font-weight: 600;
-                    padding: 5px 14px;
-                    border-radius: 5px;
-                    border: 1px solid #334155;
-                    background: #1e293b;
-                    color: #f1f5f9;
-                }
-                QPushButton:hover {
-                    background: #334155;
-                }
-            """)
-            bg_color = '#0b0f19'
+            bg_color = '#080d1a'
             axis_pen = pg.mkPen('#94a3b8', width=1.5)
             text_pen = pg.mkPen('#94a3b8')
             curve_raw_pen = pg.mkPen(color=(100, 116, 139, 140), width=1)
@@ -1296,23 +1438,15 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             reg_b_pen = pg.mkPen(52, 211, 153, 190, width=1.5)
             reg_p_brush = pg.mkBrush(251, 146, 60, 65)
             reg_p_pen = pg.mkPen(251, 146, 60, 220, width=2)
+
+            if hasattr(self, 'btn_top_info'):
+                self.btn_top_info.setStyleSheet("QPushButton { font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 5px; border: 1px solid #25395c; background: #111c30; color: #f1f5f9; } QPushButton:hover { background: #1a2c4e; border-color: #38bdf8; }")
+            if hasattr(self, 'banner'):
+                self.banner.setStyleSheet("background-color: #0d1e38; color: #7dd3fc; border: 1px solid #1e3a6a; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
+            if hasattr(self, 'lbl_solved_rs'):
+                self.lbl_solved_rs.setStyleSheet("font-weight: bold; color: #38bdf8; font-size: 13px;")
         else:
             self.setStyleSheet(LIGHT_STYLE)
-            self.btn_theme_toggle.setText("🌙 Dark Cryo Mode")
-            self.btn_theme_toggle.setStyleSheet("""
-                QPushButton {
-                    font-size: 12px;
-                    font-weight: 600;
-                    padding: 5px 14px;
-                    border-radius: 5px;
-                    border: 1px solid #cbd5e1;
-                    background: #f1f5f9;
-                    color: #1e293b;
-                }
-                QPushButton:hover {
-                    background: #e2e8f0;
-                }
-            """)
             bg_color = '#ffffff'
             axis_pen = pg.mkPen('#1e293b', width=1.5)
             text_pen = pg.mkPen('#1e293b')
@@ -1325,6 +1459,13 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             reg_b_pen = pg.mkPen(44, 160, 44, 180, width=1.5)
             reg_p_brush = pg.mkBrush(255, 127, 14, 60)
             reg_p_pen = pg.mkPen(255, 127, 14, 220, width=2)
+
+            if hasattr(self, 'btn_top_info'):
+                self.btn_top_info.setStyleSheet("QPushButton { font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 5px; border: 1px solid #cbd5e1; background: #f1f5f9; color: #1e293b; } QPushButton:hover { background: #e2e8f0; border-color: #94a3b8; }")
+            if hasattr(self, 'banner'):
+                self.banner.setStyleSheet("background-color: #e8f4fd; color: #0c5460; border: 1px solid #b6e0fe; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
+            if hasattr(self, 'lbl_solved_rs'):
+                self.lbl_solved_rs.setStyleSheet("font-weight: bold; color: #0284c7; font-size: 13px;")
 
         # Style all plot canvases and bounding boxes
         for p_attr in ['plot_widget', 'plot_b_manual', 'plot_batch']:
@@ -1344,6 +1485,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             self.curve_delta.setPen(curve_delta_pen)
             self.curve_delta.setSymbolBrush(delta_brush)
             self.curve_delta.setSymbolPen(axis_pen)
+
         def style_region(reg, brush, pen):
             reg.setBrush(brush)
             for line in reg.lines:
@@ -1367,22 +1509,34 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             style_region(self.b_region_pulse, reg_p_brush, reg_p_pen)
             style_region(self.b_region_b2, reg_b_brush, reg_b_pen)
 
+        # Style physical dashboards
+        for dash in [getattr(self, 'dashboard_single', None), getattr(self, 'dashboard_batch', None)]:
+            if dash is not None:
+                if is_dark:
+                    dash["container"].setStyleSheet("QFrame#physical_dashboard { background-color: #0b1120; border: 1px solid #1a2744; border-radius: 8px; }")
+                    dash["header"].setStyleSheet("font-size: 12px; font-weight: bold; color: #38bdf8;")
+                    dash["drift"].setStyleSheet("font-size: 11px; color: #94a3b8; font-family: 'Consolas', 'Segoe UI Mono', monospace; padding: 3px 10px; background-color: #111c30; border: 1px solid #1e2d4a; border-radius: 10px;")
+                else:
+                    dash["container"].setStyleSheet("QFrame#physical_dashboard { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; }")
+                    dash["header"].setStyleSheet("font-size: 12px; font-weight: bold; color: #0284c7;")
+                    dash["drift"].setStyleSheet("font-size: 11px; color: #475569; font-family: 'Consolas', 'Segoe UI Mono', monospace; padding: 3px 10px; background-color: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 10px;")
+
         # Update metric cards
         for card in self.all_metric_cards:
             if is_dark:
                 card["widget"].setStyleSheet(
-                    "background-color: #131b2e; border: 1px solid #334155; border-left: 4px solid #0284c7; border-radius: 6px; padding: 6px;"
+                    "background-color: #111c30; border: 1px solid #1a2744; border-top: 2px solid #38bdf8; border-radius: 6px; padding: 6px;"
                 )
                 card["title"].setStyleSheet("font-size: 11px; color: #94a3b8; font-weight: 600;")
-                card["main"].setStyleSheet("font-family: 'Consolas', 'Segoe UI Mono', monospace; font-size: 16px; color: #f8fafc; font-weight: bold;")
+                card["main"].setStyleSheet("font-family: 'Consolas', 'Segoe UI Mono', monospace; font-size: 15px; color: #f8fafc; font-weight: bold;")
                 card["sub"].setStyleSheet("font-size: 11px; color: #64748b;")
             else:
                 card["widget"].setStyleSheet(
-                    "background-color: #ffffff; border: 1px solid #e2e8f0; border-left: 4px solid #2563eb; border-radius: 6px; padding: 6px;"
+                    "background-color: #ffffff; border: 1px solid #e2e8f0; border-top: 2px solid #0284c7; border-radius: 6px; padding: 6px;"
                 )
                 card["title"].setStyleSheet("font-size: 11px; color: #64748b; font-weight: 600;")
-                card["main"].setStyleSheet("font-family: 'Consolas', 'Segoe UI Mono', monospace; font-size: 16px; color: #0f172a; font-weight: bold;")
-                card["sub"].setStyleSheet("font-size: 11px; color: #475569;")
+                card["main"].setStyleSheet("font-family: 'Consolas', 'Segoe UI Mono', monospace; font-size: 15px; color: #0f172a; font-weight: bold;")
+                card["sub"].setStyleSheet("font-size: 11px; color: #64748b;")
 
         # Refresh temperature plot if batch results exist
         if hasattr(self, 'plot_batch') and hasattr(self, 'update_batch_plot'):
@@ -1391,7 +1545,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         # Re-trigger current calculation to apply specific colors like n-type/p-type pills
         if hasattr(self, 'recalculate_all') and self.t_sec is not None:
             self.recalculate_all()
-        if hasattr(self, 'recalculate_batch_manual') and self.b_t_sec is not None:
+        if hasattr(self, 'recalculate_batch_manual') and hasattr(self, 'b_t_sec') and self.b_t_sec is not None:
             self.recalculate_batch_manual()
         if hasattr(self, 'refresh_batch_files_table'):
             self.refresh_batch_files_table()
@@ -1476,8 +1630,8 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         rh = self.spin_rh.value()
         rv = self.spin_rv.value()
         rs_ohm, ratio = hall_core.solve_van_der_pauw(rh, rv)
-        self.lbl_solved_rs.setText(f"Rs: {rs_ohm:.2f} Ω/□")
-        self.lbl_vdp_ratio.setText(f"Rh / Rv Ratio: {ratio:.2f}")
+        self.lbl_solved_rs.setText(f"R<sub>s</sub>: {rs_ohm:.2f} Ω/□")
+        self.lbl_vdp_ratio.setText(f"R<sub>h</sub> / R<sub>v</sub> Ratio: {ratio:.2f}")
 
         curr_mult = {"µA": 1e-6, "mA": 1e-3, "A": 1.0}[self.combo_curr_unit.currentText()]
         current_a = self.spin_curr.value() * curr_mult
@@ -1496,30 +1650,30 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             if phys["is_n_type"]:
                 self.card_type["main"].setText("● n-type (electrons)")
                 if self.is_dark_theme:
-                    self.card_type["main"].setStyleSheet("font-size: 13px; color: #38bdf8; font-weight: bold; padding: 2px 6px; background-color: #0c4a6e; border-radius: 4px;")
+                    self.card_type["main"].setStyleSheet("font-size: 12px; color: #38bdf8; font-weight: bold; padding: 3px 12px; background-color: #0c4a6e; border: 1px solid #0284c7; border-radius: 12px;")
                 else:
-                    self.card_type["main"].setStyleSheet("font-size: 13px; color: #0369a1; font-weight: bold; padding: 2px 6px; background-color: #e0f2fe; border-radius: 4px;")
+                    self.card_type["main"].setStyleSheet("font-size: 12px; color: #0369a1; font-weight: bold; padding: 3px 12px; background-color: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 12px;")
             else:
                 self.card_type["main"].setText("● p-type (holes)")
                 if self.is_dark_theme:
-                    self.card_type["main"].setStyleSheet("font-size: 13px; color: #34d399; font-weight: bold; padding: 2px 6px; background-color: #064e3b; border-radius: 4px;")
+                    self.card_type["main"].setStyleSheet("font-size: 12px; color: #34d399; font-weight: bold; padding: 3px 12px; background-color: #064e3b; border: 1px solid #059669; border-radius: 12px;")
                 else:
-                    self.card_type["main"].setStyleSheet("font-size: 13px; color: #047857; font-weight: bold; padding: 2px 6px; background-color: #d1fae5; border-radius: 4px;")
+                    self.card_type["main"].setStyleSheet("font-size: 12px; color: #047857; font-weight: bold; padding: 3px 12px; background-color: #d1fae5; border: 1px solid #6ee7b7; border-radius: 12px;")
             self.card_type["sub"].setText(f"Drift: {res['slope_v_per_s']*1e6:.2f} µV/s")
 
-            self.card_ns["main"].setText(f"{phys['ns_cm2']:.3e} cm⁻²")
-            self.card_ns["sub"].setText(f"R_Hs: {phys['r_hs_si']:.2f} Ω/T")
+            self.card_ns["main"].setText(f"{format_sci(phys['ns_cm2'], 3)} cm⁻²")
+            self.card_ns["sub"].setText(f"R<sub>Hs</sub>: {phys['r_hs_si']:.2f} Ω/T")
 
             if phys["n_bulk_cm3"] is not None:
-                self.card_n["main"].setText(f"{phys['n_bulk_cm3']:.3e} cm⁻³")
-                self.card_n["sub"].setText(f"RH: {phys['r_h_cm3_c']:.3e} cm³/C")
+                self.card_n["main"].setText(f"{format_sci(phys['n_bulk_cm3'], 3)} cm⁻³")
+                self.card_n["sub"].setText(f"R<sub>H</sub>: {format_sci(phys['r_h_cm3_c'], 3)} cm³/C")
 
             if phys["mobility_cm2_vs"] is not None:
                 self.card_mu["main"].setText(f"{phys['mobility_cm2_vs']:.1f} cm²/V·s")
-                self.card_mu["sub"].setText(f"Using Rs = {rs_ohm:.1f} Ω/□")
+                self.card_mu["sub"].setText(f"Using R<sub>s</sub> = {rs_ohm:.1f} Ω/□")
 
             if phys["resistivity_ohm_cm"] is not None:
-                self.card_rho["main"].setText(f"{phys['resistivity_ohm_cm']:.3e} Ω·cm")
+                self.card_rho["main"].setText(f"{format_sci(phys['resistivity_ohm_cm'], 3)} Ω·cm")
                 self.card_rho["sub"].setText(f"d = {self.spin_thick.value()} {self.combo_thick_unit.currentText()}")
 
             if self.chk_flatten.isChecked():
@@ -2016,30 +2170,30 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             if phys["is_n_type"]:
                 self.b_card_type["main"].setText("● n-type (electrons)")
                 if self.is_dark_theme:
-                    self.b_card_type["main"].setStyleSheet("font-size: 13px; color: #38bdf8; font-weight: bold; padding: 2px 6px; background-color: #0c4a6e; border-radius: 4px;")
+                    self.b_card_type["main"].setStyleSheet("font-size: 12px; color: #38bdf8; font-weight: bold; padding: 3px 12px; background-color: #0c4a6e; border: 1px solid #0284c7; border-radius: 12px;")
                 else:
-                    self.b_card_type["main"].setStyleSheet("font-size: 13px; color: #0369a1; font-weight: bold; padding: 2px 6px; background-color: #e0f2fe; border-radius: 4px;")
+                    self.b_card_type["main"].setStyleSheet("font-size: 12px; color: #0369a1; font-weight: bold; padding: 3px 12px; background-color: #e0f2fe; border: 1px solid #7dd3fc; border-radius: 12px;")
             else:
                 self.b_card_type["main"].setText("● p-type (holes)")
                 if self.is_dark_theme:
-                    self.b_card_type["main"].setStyleSheet("font-size: 13px; color: #34d399; font-weight: bold; padding: 2px 6px; background-color: #064e3b; border-radius: 4px;")
+                    self.b_card_type["main"].setStyleSheet("font-size: 12px; color: #34d399; font-weight: bold; padding: 3px 12px; background-color: #064e3b; border: 1px solid #059669; border-radius: 12px;")
                 else:
-                    self.b_card_type["main"].setStyleSheet("font-size: 13px; color: #047857; font-weight: bold; padding: 2px 6px; background-color: #d1fae5; border-radius: 4px;")
+                    self.b_card_type["main"].setStyleSheet("font-size: 12px; color: #047857; font-weight: bold; padding: 3px 12px; background-color: #d1fae5; border: 1px solid #6ee7b7; border-radius: 12px;")
             self.b_card_type["sub"].setText(f"Drift: {res['slope_v_per_s']*1e6:.2f} µV/s")
 
-            self.b_card_ns["main"].setText(f"{phys['ns_cm2']:.3e} cm⁻²")
-            self.b_card_ns["sub"].setText(f"R_Hs: {phys['r_hs_si']:.2f} Ω/T")
+            self.b_card_ns["main"].setText(f"{format_sci(phys['ns_cm2'], 3)} cm⁻²")
+            self.b_card_ns["sub"].setText(f"R<sub>Hs</sub>: {phys['r_hs_si']:.2f} Ω/T")
 
             if phys["n_bulk_cm3"] is not None:
-                self.b_card_n["main"].setText(f"{phys['n_bulk_cm3']:.3e} cm⁻³")
-                self.b_card_n["sub"].setText(f"RH: {phys['r_h_cm3_c']:.3e} cm³/C")
+                self.b_card_n["main"].setText(f"{format_sci(phys['n_bulk_cm3'], 3)} cm⁻³")
+                self.b_card_n["sub"].setText(f"R<sub>H</sub>: {format_sci(phys['r_h_cm3_c'], 3)} cm³/C")
 
             if phys["mobility_cm2_vs"] is not None:
                 self.b_card_mu["main"].setText(f"{phys['mobility_cm2_vs']:.1f} cm²/V·s")
-                self.b_card_mu["sub"].setText(f"Using Rs = {rs_ohm:.1f} Ω/□")
+                self.b_card_mu["sub"].setText(f"Using R<sub>s</sub> = {rs_ohm:.1f} Ω/□")
 
             if phys["resistivity_ohm_cm"] is not None:
-                self.b_card_rho["main"].setText(f"{phys['resistivity_ohm_cm']:.3e} Ω·cm")
+                self.b_card_rho["main"].setText(f"{format_sci(phys['resistivity_ohm_cm'], 3)} Ω·cm")
                 self.b_card_rho["sub"].setText(f"d = {self.spin_b_thick.value()} nm")
 
             # Update curves
@@ -2494,34 +2648,73 @@ class HallDesktopApp(QtWidgets.QMainWindow):
     def open_info_dialog(self):
         dialog = QtWidgets.QDialog(self)
         dialog.setWindowTitle("Information & Physical Theory Reference")
-        dialog.resize(920, 620)
+        dialog.resize(950, 680)
         d_layout = QtWidgets.QVBoxLayout(dialog)
 
         tabs = QtWidgets.QTabWidget()
 
-        # Tab 1: Credits
+        # Theme adaptive colors
+        is_dark = self.is_dark_theme
+        text_color = "#e2e8f0" if is_dark else "#212529"
+        muted_color = "#94a3b8" if is_dark else "#64748b"
+        card_bg = "#111c30" if is_dark else "#f8fafc"
+        card_border = "#1e2d4a" if is_dark else "#e2e8f0"
+        title_color = "#38bdf8" if is_dark else "#0284c7"
+        head_color = "#f1f5f9" if is_dark else "#0f172a"
+        code_bg = "#16233b" if is_dark else "#f1f5f9"
+        table_hdr_bg = "#17253d" if is_dark else "#e9ecef"
+        table_alt_bg = "#10192b" if is_dark else "#f8f9fa"
+
+        # Tab 1: Credits & Author
         tab_credit = QtWidgets.QWidget()
         c_layout = QtWidgets.QVBoxLayout(tab_credit)
+        c_layout.setContentsMargins(10, 10, 10, 10)
+        c_layout.setSpacing(10)
+
         credit_browser = QtWidgets.QTextBrowser()
         credit_browser.setOpenExternalLinks(True)
-        credit_html = """
-        <div style='font-family: Segoe UI, Arial, sans-serif; padding: 12px; color: #212529;'>
-            <h2 style='color: #0d6efd; margin-bottom: 4px;'>🔬 Hall Effect Measurement Studio</h2>
-            <p style='font-size: 13px; color: #6c757d; margin-top: 0;'>Version 2.0 — Dual Single & Batch Production Edition</p>
-            <hr style='border: none; border-top: 1px solid #dee2e6; margin: 15px 0;'/>
+        credit_html = f"""
+        <div style='font-family: Segoe UI, -apple-system, sans-serif; padding: 12px; color: {text_color};'>
+            <div style='display: flex; justify-content: space-between; align-items: center;'>
+                <h2 style='color: {title_color}; margin-bottom: 2px;'>🔬 Hall Effect Measurement Studio</h2>
+                <span style='font-size: 13px; color: {muted_color}; font-weight: 600;'>Version 2.0 — Dual Single & Batch Production Edition</span>
+            </div>
+            <hr style='border: none; border-top: 1px solid {card_border}; margin: 12px 0;'/>
             
-            <h3 style='color: #343a40;'>About This Application</h3>
-            <p style='font-size: 14px; line-height: 1.6;'>
+            <div style='background-color: {card_bg}; border: 1px solid {card_border}; border-left: 4px solid {title_color}; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;'>
+                <h3 style='color: {title_color}; margin: 0 0 8px 0; font-size: 15px;'>👨‍🔬 Author & Laboratory Attribution</h3>
+                <p style='margin: 4px 0; font-size: 14px; line-height: 1.5;'>
+                    <b>Principal Author:</b> Trung Pham<br>
+                    <b>Laboratory:</b> Spatial Atomic Layer Deposition (SALD) Laboratory<br>
+                    <b>Affiliation:</b> Faculty of Materials Science and Engineering, Phenikaa University<br>
+                    <b>Location:</b> Yen Nghia, Ha Dong, Hanoi 12116, Vietnam<br>
+                    <b>Contact Email:</b> <a style='color: {title_color}; text-decoration: none;' href='mailto:trung.pham@phenikaa-uni.edu.vn'>trung.pham@phenikaa-uni.edu.vn</a>
+                </p>
+            </div>
+
+            <div style='background-color: {card_bg}; border: 1px solid {card_border}; border-radius: 8px; padding: 14px 18px; margin-bottom: 16px;'>
+                <h3 style='color: {title_color}; margin: 0 0 8px 0; font-size: 15px;'>🌐 Open Source & Version Releases</h3>
+                <p style='margin: 4px 0; font-size: 14px; line-height: 1.6;'>
+                    This project is actively maintained on GitHub. Source code, documentation, test suites, and precompiled binaries are available at:
+                </p>
+                <ul style='margin: 6px 0; padding-left: 20px; font-size: 13.5px; line-height: 1.8;'>
+                    <li><b>GitHub Repository:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio'>https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio</a></li>
+                    <li><b>Latest Releases & Executables:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases'>https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases</a></li>
+                </ul>
+            </div>
+
+            <h3 style='color: {head_color}; margin-top: 18px; font-size: 15px;'>About This Application</h3>
+            <p style='font-size: 13.5px; line-height: 1.6;'>
                 <b>Hall Effect Measurement Studio</b> is a specialized, hardware-accelerated scientific analysis application 
                 developed for experimental condensed matter physics, semiconductor characterization, and thin-film electronic transport research.
             </p>
-            <p style='font-size: 14px; line-height: 1.6;'>
+            <p style='font-size: 13.5px; line-height: 1.6;'>
                 It was designed to completely eliminate the tedious and error-prone manual process of drawing lines across drifting baselines 
                 in Excel or Origin, copying numbers between sheets, and manually re-calculating carrier concentrations and mobility.
             </p>
             
-            <h3 style='color: #343a40; margin-top: 20px;'>Core Engineering Highlights</h3>
-            <ul style='font-size: 14px; line-height: 1.8;'>
+            <h3 style='color: {head_color}; margin-top: 18px; font-size: 15px;'>Core Engineering Highlights</h3>
+            <ul style='font-size: 13.5px; line-height: 1.8;'>
                 <li><b>Single Studio (60+ FPS):</b> Hardware-accelerated Qt/OpenGL canvas with real-time recalculation as you drag shaded regions.</li>
                 <li><b>Batch Calculation Studio:</b> Multi-file bulk processing of temperature-dependent Hall runs, matching van der Pauw sheets, and rendering temperature curves.</li>
                 <li><b>Dynamic Baseline Drift Interpolation:</b> Ordinary least squares extrapolation connecting pre- and post-pulse intervals across the pulse window.</li>
@@ -2530,8 +2723,8 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                 <li><b>Export Checkboard & Row Deletion:</b> Choose exactly which parameters to export and clean up accidental log entries.</li>
             </ul>
 
-            <h3 style='color: #343a40; margin-top: 20px;'>Credits & Collaboration</h3>
-            <p style='font-size: 14px; line-height: 1.6;'>
+            <h3 style='color: {head_color}; margin-top: 18px; font-size: 15px;'>Credits & Collaboration</h3>
+            <p style='font-size: 13.5px; line-height: 1.6;'>
                 • <b>Development & Architecture:</b> Pair-programmed with <b>Antigravity</b> (Google DeepMind Advanced Agentic Coding team).<br>
                 • <b>Experimental Protocol:</b> Designed for stepped pulse magnetic field sequences (<i>0 → +B → 0 → -B → 0 → +B → 0</i>) with van der Pauw 4-contact geometry.
             </p>
@@ -2539,23 +2732,40 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         """
         credit_browser.setHtml(credit_html)
         c_layout.addWidget(credit_browser)
-        tabs.addTab(tab_credit, "📜 Credits")
+
+        # One-Click Action Buttons for GitHub
+        h_git_btns = QtWidgets.QHBoxLayout()
+        btn_open_repo = QtWidgets.QPushButton("🌐 Open GitHub Repository")
+        btn_open_repo.setStyleSheet("font-size: 12px; font-weight: bold; padding: 7px 16px; background-color: #0284c7; color: white; border-radius: 5px;")
+        btn_open_repo.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio")))
+        h_git_btns.addWidget(btn_open_repo)
+
+        btn_open_releases = QtWidgets.QPushButton("🚀 View Latest Releases")
+        btn_open_releases.setStyleSheet("font-size: 12px; font-weight: bold; padding: 7px 16px; background-color: #059669; color: white; border-radius: 5px;")
+        btn_open_releases.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases")))
+        h_git_btns.addWidget(btn_open_releases)
+
+        h_git_btns.addStretch()
+        c_layout.addLayout(h_git_btns)
+
+        tabs.addTab(tab_credit, "📜 Credits & Author")
 
         # Tab 2: Physical Check
         tab_physics = QtWidgets.QWidget()
         p_layout = QtWidgets.QVBoxLayout(tab_physics)
+        p_layout.setContentsMargins(10, 10, 10, 10)
         physics_browser = QtWidgets.QTextBrowser()
         physics_browser.setOpenExternalLinks(True)
-        physics_html = """
-        <div style='font-family: Segoe UI, Arial, sans-serif; padding: 12px; color: #212529;'>
-            <h2 style='color: #0d6efd; margin-bottom: 4px;'>📐 Physical Parameter Extraction Reference</h2>
-            <p style='font-size: 13px; color: #6c757d; margin-top: 0;'>Theory & Mathematical Formulas used in calculations</p>
-            <hr style='border: none; border-top: 1px solid #dee2e6; margin: 15px 0;'/>
+        physics_html = f"""
+        <div style='font-family: Segoe UI, -apple-system, sans-serif; padding: 12px; color: {text_color};'>
+            <h2 style='color: {title_color}; margin-bottom: 4px;'>📐 Physical Parameter Extraction Reference</h2>
+            <p style='font-size: 13px; color: {muted_color}; margin-top: 0;'>Theory & Mathematical Formulas used in calculations</p>
+            <hr style='border: none; border-top: 1px solid {card_border}; margin: 15px 0;'/>
 
-            <h3 style='color: #343a40;'>1. Physical Parameters Extraction Table</h3>
+            <h3 style='color: {head_color};'>1. Physical Parameters Extraction Table</h3>
             <table style='width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px;'>
                 <thead>
-                    <tr style='background-color: #e9ecef; border-top: 1px solid #ced4da; border-bottom: 2px solid #adb5bd;'>
+                    <tr style='background-color: {table_hdr_bg}; border-top: 1px solid {card_border}; border-bottom: 2px solid {card_border};'>
                         <th style='padding: 10px; text-align: left;'>Physical Quantity</th>
                         <th style='padding: 10px; text-align: left;'>Mathematical Formula</th>
                         <th style='padding: 10px; text-align: left;'>SI & Common Units</th>
@@ -2563,43 +2773,43 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style='border-bottom: 1px solid #dee2e6;'>
+                    <tr style='border-bottom: 1px solid {card_border};'>
                         <td style='padding: 10px; font-weight: bold;'>Sheet Hall Coefficient (R<sub>Hs</sub>)</td>
                         <td style='padding: 10px;'><code>R<sub>Hs</sub> = V<sub>H</sub> / (I · B)</code></td>
                         <td style='padding: 10px;'>Ω / T &nbsp;(or m² / C)</td>
                         <td style='padding: 10px;'>Signed value</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6; background-color: #f8f9fa;'>
+                    <tr style='border-bottom: 1px solid {card_border}; background-color: {table_alt_bg};'>
                         <td style='padding: 10px; font-weight: bold;'>Carrier Type</td>
                         <td style='padding: 10px;'><code>R<sub>Hs</sub> &lt; 0 ⇒ n-type<br>R<sub>Hs</sub> &gt; 0 ⇒ p-type</code></td>
                         <td style='padding: 10px;'>Electrons / Holes</td>
                         <td style='padding: 10px;'>Sign determined by Lorentz force</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6;'>
+                    <tr style='border-bottom: 1px solid {card_border};'>
                         <td style='padding: 10px; font-weight: bold;'>Sheet Carrier Density (n<sub>s</sub>)</td>
                         <td style='padding: 10px;'><code>n<sub>s</sub> = 1 / (q · |R<sub>Hs</sub>|) = |I · B| / (q · |V<sub>H</sub>|)</code></td>
                         <td style='padding: 10px;'>cm⁻²</td>
                         <td style='padding: 10px;'>2D carrier density (q = 1.602×10⁻¹⁹ C)</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6; background-color: #f8f9fa;'>
+                    <tr style='border-bottom: 1px solid {card_border}; background-color: {table_alt_bg};'>
                         <td style='padding: 10px; font-weight: bold;'>Bulk 3D Carrier Density (n)</td>
                         <td style='padding: 10px;'><code>n = n<sub>s</sub> / d = |I · B| / (q · |V<sub>H</sub>| · d)</code></td>
                         <td style='padding: 10px;'>cm⁻³</td>
                         <td style='padding: 10px;'>d = sample thickness in cm</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6;'>
+                    <tr style='border-bottom: 1px solid {card_border};'>
                         <td style='padding: 10px; font-weight: bold;'>Bulk Hall Coefficient (R<sub>H</sub>)</td>
                         <td style='padding: 10px;'><code>R<sub>H</sub> = R<sub>Hs</sub> · d = (V<sub>H</sub> · d) / (I · B)</code></td>
                         <td style='padding: 10px;'>cm³ / C &nbsp;(or m³ / C)</td>
                         <td style='padding: 10px;'>1 m³/C = 10⁶ cm³/C</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6; background-color: #f8f9fa;'>
+                    <tr style='border-bottom: 1px solid {card_border}; background-color: {table_alt_bg};'>
                         <td style='padding: 10px; font-weight: bold;'>Hall Mobility (μ)</td>
                         <td style='padding: 10px;'><code>μ = (|R<sub>Hs</sub>| / R<sub>s</sub>) × 10⁴ = 1 / (q · n<sub>s</sub> · R<sub>s</sub>)</code></td>
                         <td style='padding: 10px;'>cm² / (V · s)</td>
                         <td style='padding: 10px;'>R<sub>s</sub> from van der Pauw (Ω/□)</td>
                     </tr>
-                    <tr style='border-bottom: 1px solid #dee2e6;'>
+                    <tr style='border-bottom: 1px solid {card_border};'>
                         <td style='padding: 10px; font-weight: bold;'>Bulk Resistivity (ρ)</td>
                         <td style='padding: 10px;'><code>ρ = R<sub>s</sub> · d</code></td>
                         <td style='padding: 10px;'>Ω · cm</td>
@@ -2608,24 +2818,24 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                 </tbody>
             </table>
 
-            <h3 style='color: #343a40;'>2. van der Pauw Method for Sheet Resistance</h3>
+            <h3 style='color: {head_color};'>2. van der Pauw Method for Sheet Resistance</h3>
             <p style='font-size: 14px; line-height: 1.6;'>
                 For an arbitrary flat sample with 4 peripheral contacts, the sheet resistance <code>R<sub>s</sub></code> satisfies:
             </p>
-            <div style='background-color: #f1f3f5; padding: 10px 16px; border-radius: 5px; font-size: 15px; font-family: monospace;'>
+            <div style='background-color: {code_bg}; padding: 10px 16px; border-radius: 5px; font-size: 15px; font-family: monospace;'>
                 exp(-π · R<sub>h</sub> / R<sub>s</sub>) + exp(-π · R<sub>v</sub> / R<sub>s</sub>) = 1
             </div>
             <p style='font-size: 14px; line-height: 1.6; margin-top: 8px;'>
                 The application uses Brent's root-finding algorithm to solve this transcendental equation to high precision.
             </p>
 
-            <h3 style='color: #343a40; margin-top: 20px;'>3. Misalignment Voltage & Drift Cancellation</h3>
+            <h3 style='color: {head_color}; margin-top: 20px;'>3. Misalignment Voltage & Drift Cancellation</h3>
             <p style='font-size: 14px; line-height: 1.6;'>
                 Due to unavoidable geometric contact asymmetry, the transverse voltage contains an Ohmic misalignment voltage 
                 <code>V<sub>offset</sub> = I · R<sub>misalign</sub></code>. Because Hall voltage is odd in B (<code>V<sub>H</sub>(-B) = -V<sub>H</sub>(+B)</code>) 
                 while offset voltage is even in B, reversing the magnetic field cleanly eliminates the offset:
             </p>
-            <div style='background-color: #f1f3f5; padding: 10px 16px; border-radius: 5px; font-size: 15px; font-family: monospace;'>
+            <div style='background-color: {code_bg}; padding: 10px 16px; border-radius: 5px; font-size: 15px; font-family: monospace;'>
                 V<sub>H</sub> = [ ΔV(+B) - ΔV(-B) ] / 2
             </div>
         </div>
