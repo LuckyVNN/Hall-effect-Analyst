@@ -1,13 +1,9 @@
 # 🔬 Hall Effect Measurement Studio (Single & Batch Analysis)
 
-**Author:** Trung Pham  
-**Laboratory:** SALD Laboratory (Spatial Atomic Layer Deposition Laboratory)  
-**Institution:** Phenikaa University  
-**License:** MIT  
-
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![GUI](https://img.shields.io/badge/GUI-PyQt6%20%7C%20PyQtGraph-green.svg)](https://riverbankcomputing.com/software/pyqt/)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/LuckyVNN/Hall-effect-Analyst)
 
 A high-performance, publication-grade desktop scientific application for real-time Hall effect measurement extraction, dynamic baseline drift subtraction, van der Pauw sheet resistance solving, and automated temperature-dependent electronic transport analysis.
 
@@ -38,10 +34,10 @@ A high-performance, publication-grade desktop scientific application for real-ti
 | :--- | :--- | :--- |
 | **Sheet Hall Coefficient ($R_{\text{Hs}}$)** | $R_{\text{Hs}} = \frac{V_{\text{H}}}{I \cdot B}$ | $\Omega / \text{T}$ or $\text{m}^2/\text{C}$ |
 | **Carrier Type** | $R_{\text{Hs}} < 0 \implies \text{n-type}$, $R_{\text{Hs}} > 0 \implies \text{p-type}$ | Electrons / Holes |
-| **Sheet Carrier Density ($n_s$)** | $n_s = \frac{\|I \cdot B\|}{q \cdot \|V_{\text{H}}\|} = \frac{1}{q \cdot \|R_{\text{Hs}}\|}$ | $\text{cm}^{-2}$ |
+| **Sheet Carrier Density ($n_s$)** | $n_s = \frac{|I \cdot B|}{q \cdot |V_{\text{H}}|} = \frac{1}{q \cdot |R_{\text{Hs}}|}$ | $\text{cm}^{-2}$ |
 | **Bulk Carrier Density ($n$)** | $n = \frac{n_s}{d}$ | $\text{cm}^{-3}$ |
 | **Bulk Hall Coefficient ($R_{\text{H}}$)** | $R_{\text{H}} = R_{\text{Hs}} \cdot d$ | $\text{cm}^3/\text{C}$ |
-| **Hall Mobility ($\mu$)** | $\mu = \frac{\|R_{\text{Hs}}\|}{R_s} \times 10^4 = \frac{1}{q \cdot n_s \cdot R_s}$ | $\text{cm}^2/(\text{V}\cdot\text{s})$ |
+| **Hall Mobility ($\mu$)** | $\mu = \frac{|R_{\text{Hs}}|}{R_s} \times 10^4 = \frac{1}{q \cdot n_s \cdot R_s}$ | $\text{cm}^2/(\text{V}\cdot\text{s})$ |
 | **Bulk Resistivity ($\rho$)** | $\rho = R_s \cdot d$ | $\Omega\cdot\text{cm}$ |
 
 ---
@@ -68,20 +64,30 @@ run_desktop.bat
 
 ---
 
-## 🏛️ Citation & Attribution
+## 📄 License
 
-If you use this software in your experimental research or publications, please cite:
+This project is licensed under the MIT License:
 
-```bibtex
-@software{hall_effect_studio_2026,
-  author = {Trung Pham},
-  title = {Hall Effect Measurement Studio: High-Performance Transport Analysis},
-  institution = {SALD Laboratory, Phenikaa University},
-  year = {2026},
-  url = {https://github.com/LuckyVNN/Hall-effect-Analyst}
-}
+```text
+MIT License
+
+Copyright (c) 2026 Trung Pham
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
-
-**Laboratory Contact:**  
-SALD Laboratory — Spatial Atomic Layer Deposition  
-Phenikaa University, Hanoi, Vietnam
