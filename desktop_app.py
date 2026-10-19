@@ -97,9 +97,16 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: #cbd5e1;
 }
-QScrollArea {
+QScrollArea, QScrollArea > QWidget > QWidget, QScrollArea > QWidget {
+    background-color: #f8fafc;
     border: none;
-    background: transparent;
+}
+QScrollArea QWidget#qt_scrollarea_viewport {
+    background-color: #f8fafc;
+}
+QWidget#tab_single, QWidget#tab_batch, QWidget#left_widget, QWidget#b_left_widget,
+QWidget#right_widget, QWidget#b_right_widget, QWidget#sub_tab_manual, QWidget#sub_tab_table, QWidget#sub_tab_plots {
+    background-color: #f8fafc;
 }
 QTableWidget {
     background-color: #ffffff;
@@ -130,6 +137,9 @@ QSpinBox, QDoubleSpinBox, QComboBox, QLineEdit {
 QSpinBox:focus, QDoubleSpinBox:focus, QComboBox:focus, QLineEdit:focus {
     border: 1.5px solid #2563eb;
 }
+QSplitter {
+    background-color: #f8fafc;
+}
 QSplitter::handle {
     background-color: #cbd5e1;
     width: 5px;
@@ -138,6 +148,40 @@ QSplitter::handle {
 }
 QSplitter::handle:hover {
     background-color: #2563eb;
+}
+QScrollBar:vertical {
+    background: #f1f5f9;
+    width: 10px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background: #cbd5e1;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #94a3b8;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar:horizontal {
+    background: #f1f5f9;
+    height: 10px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QScrollBar::handle:horizontal {
+    background: #cbd5e1;
+    min-width: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #94a3b8;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
 }
 QProgressBar {
     border: 1px solid #cbd5e1;
@@ -161,7 +205,8 @@ QFrame#legend_bar {
 """
 
 DARK_STYLE = """
-QMainWindow {
+QMainWindow, QWidget#tab_single, QWidget#tab_batch, QWidget#left_widget, QWidget#b_left_widget,
+QWidget#right_widget, QWidget#b_right_widget, QWidget#sub_tab_manual, QWidget#sub_tab_table, QWidget#sub_tab_plots {
     background-color: #080d1a;
 }
 QWidget {
@@ -170,14 +215,14 @@ QWidget {
 }
 QTabWidget::pane {
     border: 1px solid #1a2744;
-    background: #0d1527;
+    background-color: #080d1a;
     border-radius: 6px;
 }
 QTabBar::tab {
     font-size: 13px;
     font-weight: 600;
     padding: 8px 24px;
-    background: #101c33;
+    background: #0d1527;
     color: #94a3b8;
     border: 1px solid #1a2744;
     border-bottom: none;
@@ -227,9 +272,12 @@ QPushButton:hover {
 QPushButton:pressed {
     background-color: #0d1727;
 }
-QScrollArea {
+QScrollArea, QScrollArea > QWidget > QWidget, QScrollArea > QWidget {
+    background-color: #080d1a;
     border: none;
-    background: transparent;
+}
+QScrollArea QWidget#qt_scrollarea_viewport {
+    background-color: #080d1a;
 }
 QTableWidget {
     background-color: #0d1527;
@@ -261,6 +309,9 @@ QSpinBox, QDoubleSpinBox, QComboBox, QLineEdit {
 QSpinBox:focus, QDoubleSpinBox:focus, QComboBox:focus, QLineEdit:focus {
     border: 1.5px solid #38bdf8;
 }
+QSplitter {
+    background-color: #080d1a;
+}
 QSplitter::handle {
     background-color: #1a2744;
     width: 5px;
@@ -269,6 +320,40 @@ QSplitter::handle {
 }
 QSplitter::handle:hover {
     background-color: #38bdf8;
+}
+QScrollBar:vertical {
+    background: #0d1527;
+    width: 10px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical {
+    background: #1e2d4a;
+    min-height: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #38bdf8;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar:horizontal {
+    background: #0d1527;
+    height: 10px;
+    margin: 0px;
+    border-radius: 4px;
+}
+QScrollBar::handle:horizontal {
+    background: #1e2d4a;
+    min-width: 20px;
+    border-radius: 4px;
+}
+QScrollBar::handle:horizontal:hover {
+    background: #38bdf8;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
 }
 QProgressBar {
     border: 1px solid #25395c;
@@ -493,6 +578,8 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         # UI Polish & Theme State
         self.is_dark_theme = False
         self.all_metric_cards = []
+        app = QtWidgets.QApplication.instance()
+        self.default_palette = QtGui.QPalette(app.palette()) if app else QtGui.QPalette()
 
         # Build UI
         self.init_ui()
@@ -537,14 +624,16 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.main_tabs = QtWidgets.QTabWidget()
 
         # Tab 1: Single Calculation Studio
-        tab_single = QtWidgets.QWidget()
-        self.init_single_studio(tab_single)
-        self.main_tabs.addTab(tab_single, "🔬 Single Calculation Studio")
+        self.tab_single = QtWidgets.QWidget()
+        self.tab_single.setObjectName("tab_single")
+        self.init_single_studio(self.tab_single)
+        self.main_tabs.addTab(self.tab_single, "🔬 Single Calculation Studio")
 
         # Tab 2: Batch Calculation Studio
-        tab_batch = QtWidgets.QWidget()
-        self.init_batch_studio(tab_batch)
-        self.main_tabs.addTab(tab_batch, "⚡ Batch Calculation Studio")
+        self.tab_batch = QtWidgets.QWidget()
+        self.tab_batch.setObjectName("tab_batch")
+        self.init_batch_studio(self.tab_batch)
+        self.main_tabs.addTab(self.tab_batch, "⚡ Batch Calculation Studio")
 
         root_layout.addWidget(self.main_tabs)
 
@@ -561,11 +650,13 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.single_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
 
         # ----------------- LEFT CONTROL PANEL -----------------
-        left_scroll = QtWidgets.QScrollArea()
-        left_scroll.setWidgetResizable(True)
-        left_scroll.setMinimumWidth(320)
-        left_widget = QtWidgets.QWidget()
-        left_layout = QtWidgets.QVBoxLayout(left_widget)
+        self.left_scroll = QtWidgets.QScrollArea()
+        self.left_scroll.setObjectName("left_scroll")
+        self.left_scroll.setWidgetResizable(True)
+        self.left_scroll.setMinimumWidth(320)
+        self.left_widget = QtWidgets.QWidget()
+        self.left_widget.setObjectName("left_widget")
+        left_layout = QtWidgets.QVBoxLayout(self.left_widget)
         left_layout.setSpacing(10)
 
         # 1. File Selection Group
@@ -704,12 +795,13 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         left_layout.addWidget(grp_preset)
 
         left_layout.addStretch()
-        left_scroll.setWidget(left_widget)
-        self.single_splitter.addWidget(left_scroll)
+        self.left_scroll.setWidget(self.left_widget)
+        self.single_splitter.addWidget(self.left_scroll)
 
         # ----------------- RIGHT PLOT & METRICS AREA -----------------
-        right_widget = QtWidgets.QWidget()
-        right_layout = QtWidgets.QVBoxLayout(right_widget)
+        self.right_widget = QtWidgets.QWidget()
+        self.right_widget.setObjectName("right_widget")
+        right_layout = QtWidgets.QVBoxLayout(self.right_widget)
         right_layout.setContentsMargins(0, 0, 0, 0)
         right_layout.setSpacing(6)
 
@@ -779,7 +871,7 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         h_bottom.addWidget(btn_view_log)
 
         right_layout.addLayout(h_bottom)
-        self.single_splitter.addWidget(right_widget)
+        self.single_splitter.addWidget(self.right_widget)
         self.single_splitter.setStretchFactor(0, 0)
         self.single_splitter.setStretchFactor(1, 1)
         self.single_splitter.setCollapsible(0, False)
@@ -805,11 +897,13 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.batch_splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
 
         # ----------------- BATCH LEFT PANEL -----------------
-        b_left_scroll = QtWidgets.QScrollArea()
-        b_left_scroll.setWidgetResizable(True)
-        b_left_scroll.setMinimumWidth(360)
-        b_left_widget = QtWidgets.QWidget()
-        b_left_layout = QtWidgets.QVBoxLayout(b_left_widget)
+        self.b_left_scroll = QtWidgets.QScrollArea()
+        self.b_left_scroll.setObjectName("b_left_scroll")
+        self.b_left_scroll.setWidgetResizable(True)
+        self.b_left_scroll.setMinimumWidth(360)
+        self.b_left_widget = QtWidgets.QWidget()
+        self.b_left_widget.setObjectName("b_left_widget")
+        b_left_layout = QtWidgets.QVBoxLayout(self.b_left_widget)
         b_left_layout.setSpacing(10)
 
         # 1. Hall Files Group
@@ -954,12 +1048,13 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         b_left_layout.addLayout(h_auto_btns)
 
         b_left_layout.addStretch()
-        b_left_scroll.setWidget(b_left_widget)
-        self.batch_splitter.addWidget(b_left_scroll)
+        self.b_left_scroll.setWidget(self.b_left_widget)
+        self.batch_splitter.addWidget(self.b_left_scroll)
 
         # ----------------- BATCH RIGHT PANEL -----------------
-        b_right_widget = QtWidgets.QWidget()
-        b_right_layout = QtWidgets.QVBoxLayout(b_right_widget)
+        self.b_right_widget = QtWidgets.QWidget()
+        self.b_right_widget.setObjectName("b_right_widget")
+        b_right_layout = QtWidgets.QVBoxLayout(self.b_right_widget)
         b_right_layout.setContentsMargins(0, 0, 0, 0)
         b_right_layout.setSpacing(6)
 
@@ -972,8 +1067,9 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         # =====================================================================
         # SUB-TAB 0: 🎯 MANUAL EXTRACTION STUDIO
         # =====================================================================
-        sub_tab_manual = QtWidgets.QWidget()
-        sm_layout = QtWidgets.QVBoxLayout(sub_tab_manual)
+        self.sub_tab_manual = QtWidgets.QWidget()
+        self.sub_tab_manual.setObjectName("sub_tab_manual")
+        sm_layout = QtWidgets.QVBoxLayout(self.sub_tab_manual)
         sm_layout.setContentsMargins(2, 2, 2, 2)
         sm_layout.setSpacing(6)
 
@@ -1108,13 +1204,14 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.dashboard_batch, self.b_card_vh, self.b_card_type, self.b_card_ns, self.b_card_n, self.b_card_mu, self.b_card_rho = self.create_physical_dashboard(is_batch=True)
         sm_layout.addWidget(self.dashboard_batch["container"])
 
-        self.b_sub_tabs.addTab(sub_tab_manual, "🎯 Manual Extraction Studio")
+        self.b_sub_tabs.addTab(self.sub_tab_manual, "🎯 Manual Extraction Studio")
 
         # =====================================================================
         # SUB-TAB 1: 📋 BATCH RESULTS TABLE
         # =====================================================================
-        sub_tab_table = QtWidgets.QWidget()
-        st_layout = QtWidgets.QVBoxLayout(sub_tab_table)
+        self.sub_tab_table = QtWidgets.QWidget()
+        self.sub_tab_table.setObjectName("sub_tab_table")
+        st_layout = QtWidgets.QVBoxLayout(self.sub_tab_table)
 
         self.table_b_results = QtWidgets.QTableWidget()
         self.table_b_results.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
@@ -1140,13 +1237,14 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         h_tab_act.addWidget(btn_b_export_excel)
 
         st_layout.addLayout(h_tab_act)
-        self.b_sub_tabs.addTab(sub_tab_table, "📋 Batch Results Table")
+        self.b_sub_tabs.addTab(self.sub_tab_table, "📋 Batch Results Table")
 
         # =====================================================================
         # SUB-TAB 2: 📈 TEMPERATURE DEPENDENCE PLOTS
         # =====================================================================
-        sub_tab_plots = QtWidgets.QWidget()
-        sp_layout = QtWidgets.QVBoxLayout(sub_tab_plots)
+        self.sub_tab_plots = QtWidgets.QWidget()
+        self.sub_tab_plots.setObjectName("sub_tab_plots")
+        sp_layout = QtWidgets.QVBoxLayout(self.sub_tab_plots)
 
         # Plot Controls Header
         h_plot_ctrl = QtWidgets.QHBoxLayout()
@@ -1206,10 +1304,10 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.plot_batch.addLegend(offset=(10, 10))
 
         sp_layout.addWidget(self.plot_batch)
-        self.b_sub_tabs.addTab(sub_tab_plots, "📈 Temperature Dependence Plots")
+        self.b_sub_tabs.addTab(self.sub_tab_plots, "📈 Temperature Dependence Plots")
 
         b_right_layout.addWidget(self.b_sub_tabs)
-        self.batch_splitter.addWidget(b_right_widget)
+        self.batch_splitter.addWidget(self.b_right_widget)
         self.batch_splitter.setStretchFactor(0, 0)
         self.batch_splitter.setStretchFactor(1, 1)
         self.batch_splitter.setCollapsible(0, False)
@@ -1424,7 +1522,26 @@ class HallDesktopApp(QtWidgets.QMainWindow):
             self.theme_slider.set_slider_pos(1.0 if is_dark else 0.0)
             self.theme_slider.blockSignals(False)
 
+        app = QtWidgets.QApplication.instance()
+        panel_bg = '#080d1a' if is_dark else '#f8fafc'
+
         if is_dark:
+            dark_palette = QtGui.QPalette()
+            dark_palette.setColor(QtGui.QPalette.ColorRole.Window, QtGui.QColor("#080d1a"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.WindowText, QtGui.QColor("#f1f5f9"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.Base, QtGui.QColor("#080d1a"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.AlternateBase, QtGui.QColor("#0d1527"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.ToolTipBase, QtGui.QColor("#0d1527"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.ToolTipText, QtGui.QColor("#f1f5f9"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.Text, QtGui.QColor("#f1f5f9"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.Button, QtGui.QColor("#16233b"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.ButtonText, QtGui.QColor("#f1f5f9"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.Highlight, QtGui.QColor("#0284c7"))
+            dark_palette.setColor(QtGui.QPalette.ColorRole.HighlightedText, QtGui.QColor("#ffffff"))
+            if app:
+                app.setPalette(dark_palette)
+            self.setPalette(dark_palette)
+
             self.setStyleSheet(DARK_STYLE)
             bg_color = '#080d1a'
             axis_pen = pg.mkPen('#94a3b8', width=1.5)
@@ -1445,7 +1562,26 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                 self.banner.setStyleSheet("background-color: #0d1e38; color: #7dd3fc; border: 1px solid #1e3a6a; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
             if hasattr(self, 'lbl_solved_rs'):
                 self.lbl_solved_rs.setStyleSheet("font-weight: bold; color: #38bdf8; font-size: 13px;")
+            if hasattr(self, 'lbl_b_file_badge'):
+                self.lbl_b_file_badge.setStyleSheet("""
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: #38bdf8;
+                    background-color: #0d1e38;
+                    padding: 6px 14px;
+                    border: 1px solid #1e3a6a;
+                    border-radius: 5px;
+                """)
+            if hasattr(self, 'lbl_b_meta_info'):
+                self.lbl_b_meta_info.setStyleSheet("font-size: 12px; color: #94a3b8; padding: 2px 4px;")
+            if hasattr(self, 'lbl_b_file_count'):
+                self.lbl_b_file_count.setStyleSheet("color: #94a3b8; font-size: 11px;")
         else:
+            if hasattr(self, 'default_palette') and self.default_palette:
+                if app:
+                    app.setPalette(self.default_palette)
+                self.setPalette(self.default_palette)
+
             self.setStyleSheet(LIGHT_STYLE)
             bg_color = '#ffffff'
             axis_pen = pg.mkPen('#1e293b', width=1.5)
@@ -1466,6 +1602,31 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                 self.banner.setStyleSheet("background-color: #e8f4fd; color: #0c5460; border: 1px solid #b6e0fe; padding: 6px 12px; border-radius: 5px; font-size: 12px;")
             if hasattr(self, 'lbl_solved_rs'):
                 self.lbl_solved_rs.setStyleSheet("font-weight: bold; color: #0284c7; font-size: 13px;")
+            if hasattr(self, 'lbl_b_file_badge'):
+                self.lbl_b_file_badge.setStyleSheet("""
+                    font-size: 13px;
+                    font-weight: bold;
+                    color: #0d6efd;
+                    background-color: #e7f1ff;
+                    padding: 6px 14px;
+                    border: 1px solid #b6d4fe;
+                    border-radius: 5px;
+                """)
+            if hasattr(self, 'lbl_b_meta_info'):
+                self.lbl_b_meta_info.setStyleSheet("font-size: 12px; color: #495057; padding: 2px 4px;")
+            if hasattr(self, 'lbl_b_file_count'):
+                self.lbl_b_file_count.setStyleSheet("color: #6c757d; font-size: 11px;")
+
+        # Set panel backgrounds explicitly on scroll areas, viewports, and panels
+        for sc_name in ['left_scroll', 'b_left_scroll']:
+            if hasattr(self, sc_name):
+                sc = getattr(self, sc_name)
+                sc.setStyleSheet(f"background-color: {panel_bg}; border: none;")
+                if sc.viewport():
+                    sc.viewport().setStyleSheet(f"background-color: {panel_bg};")
+        for w_name in ['left_widget', 'b_left_widget', 'right_widget', 'b_right_widget', 'tab_single', 'tab_batch', 'sub_tab_manual', 'sub_tab_table', 'sub_tab_plots']:
+            if hasattr(self, w_name):
+                getattr(self, w_name).setStyleSheet(f"background-color: {panel_bg};")
 
         # Style all plot canvases and bounding boxes
         for p_attr in ['plot_widget', 'plot_b_manual', 'plot_batch']:
