@@ -477,12 +477,30 @@ class LuxuryThemeSlider(QtWidgets.QAbstractButton):
         painter.drawText(knob_rect, QtCore.Qt.AlignmentFlag.AlignCenter, icon_symbol)
 
 
+def get_icon_path():
+    """Retrieve absolute path to application icon, supporting PyInstaller bundles and dev source."""
+    candidates = []
+    if hasattr(sys, '_MEIPASS'):
+        candidates.append(os.path.join(sys._MEIPASS, "app_icon.ico"))
+        candidates.append(os.path.join(sys._MEIPASS, "app_icon.png"))
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates.append(os.path.join(base_dir, "app_icon.ico"))
+    candidates.append(os.path.join(base_dir, "app_icon.png"))
+    for p in candidates:
+        if os.path.exists(p):
+            return p
+    return None
+
+
 class ColumnSelectorDialog(QtWidgets.QDialog):
     """Checkboard dialog allowing users to choose exactly which columns to export."""
     def __init__(self, available_columns, selected_columns=None, parent=None):
         super().__init__(parent)
         self.setWindowTitle("Choose Parameters / Columns to Export")
         self.resize(380, 480)
+        icon_path = get_icon_path()
+        if icon_path:
+            self.setWindowIcon(QtGui.QIcon(icon_path))
         self.available_columns = available_columns
         self.selected_columns = set(selected_columns if selected_columns else available_columns)
         self.checkboxes = {}
@@ -547,6 +565,11 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         self.setWindowTitle("Hall Effect Measurement Studio (Single & Batch Analysis)")
         self.resize(1380, 880)
 
+        # Application & Window Icon
+        icon_path = get_icon_path()
+        if icon_path:
+            self.setWindowIcon(QtGui.QIcon(icon_path))
+
         # Single Studio State
         self.raw_t_full = None
         self.raw_v_full = None
@@ -599,8 +622,16 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         # Top Header Ribbon with Branding & Live Theme Switcher
         h_top = QtWidgets.QHBoxLayout()
         h_top.setContentsMargins(4, 2, 4, 2)
+        h_top.setSpacing(8)
 
-        lbl_app_logo = QtWidgets.QLabel("🔬 <b>Hall Effect Measurement Studio</b> <span style='font-size: 11px; color: #0284c7;'>| Trung Pham · SALD Laboratory · Phenikaa University</span>")
+        icon_path = get_icon_path()
+        if icon_path:
+            lbl_icon_img = QtWidgets.QLabel()
+            pix = QtGui.QPixmap(icon_path).scaled(24, 24, QtCore.Qt.AspectRatioMode.KeepAspectRatio, QtCore.Qt.TransformationMode.SmoothTransformation)
+            lbl_icon_img.setPixmap(pix)
+            h_top.addWidget(lbl_icon_img)
+
+        lbl_app_logo = QtWidgets.QLabel("<b>Hall Effect Measurement Studio</b> <span style='font-size: 11px; color: #0284c7;'>| Trung Pham · SALD Laboratory · Phenikaa University</span>")
         lbl_app_logo.setStyleSheet("font-size: 13.5px;")
         h_top.addWidget(lbl_app_logo)
 
@@ -2810,6 +2841,9 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         dialog = QtWidgets.QDialog(self)
         dialog.setWindowTitle("Information & Physical Theory Reference")
         dialog.resize(950, 680)
+        icon_path = get_icon_path()
+        if icon_path:
+            dialog.setWindowIcon(QtGui.QIcon(icon_path))
         d_layout = QtWidgets.QVBoxLayout(dialog)
 
         tabs = QtWidgets.QTabWidget()
@@ -2834,10 +2868,15 @@ class HallDesktopApp(QtWidgets.QMainWindow):
 
         credit_browser = QtWidgets.QTextBrowser()
         credit_browser.setOpenExternalLinks(True)
+        icon_tag = "🔬 "
+        if icon_path:
+            img_src = icon_path.replace("\\", "/")
+            icon_tag = f"<img src='{img_src}' width='30' height='30' style='vertical-align: middle; margin-right: 8px;'/>"
+
         credit_html = f"""
         <div style='font-family: Segoe UI, -apple-system, sans-serif; padding: 12px; color: {text_color};'>
             <div style='display: flex; justify-content: space-between; align-items: center;'>
-                <h2 style='color: {title_color}; margin-bottom: 2px;'>🔬 Hall Effect Measurement Studio</h2>
+                <h2 style='color: {title_color}; margin-bottom: 2px;'>{icon_tag}Hall Effect Measurement Studio</h2>
                 <span style='font-size: 13px; color: {muted_color}; font-weight: 600;'>Version 2.0 — Dual Single & Batch Production Edition</span>
             </div>
             <hr style='border: none; border-top: 1px solid {card_border}; margin: 12px 0;'/>
@@ -3016,8 +3055,21 @@ class HallDesktopApp(QtWidgets.QMainWindow):
 
 
 def main():
+    # Set Windows Application User Model ID for independent taskbar icon grouping
+    try:
+        import ctypes
+        myappid = 'saldlab.halleffectanalyst.v1.0'
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    except Exception:
+        pass
+
     app = QtWidgets.QApplication(sys.argv)
     app.setStyle('Fusion')
+
+    icon_path = get_icon_path()
+    if icon_path:
+        app.setWindowIcon(QtGui.QIcon(icon_path))
+
     window = HallDesktopApp()
     window.show()
     sys.exit(app.exec())

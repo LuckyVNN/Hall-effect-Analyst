@@ -6,6 +6,7 @@ binaries = []
 hiddenimports = ['openpyxl', 'scipy.optimize', 'scipy.signal']
 tmp_ret = collect_all('pyqtgraph')
 datas += tmp_ret[0]; binaries += tmp_ret[1]; hiddenimports += tmp_ret[2]
+datas += [('app_icon.png', '.'), ('app_icon.ico', '.')]
 
 
 a = Analysis(
@@ -41,4 +42,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['app_icon.ico'],
 )
