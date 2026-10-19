@@ -2698,8 +2698,8 @@ class HallDesktopApp(QtWidgets.QMainWindow):
                     This project is actively maintained on GitHub. Source code, documentation, test suites, and precompiled binaries are available at:
                 </p>
                 <ul style='margin: 6px 0; padding-left: 20px; font-size: 13.5px; line-height: 1.8;'>
-                    <li><b>GitHub Repository:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio'>https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio</a></li>
-                    <li><b>Latest Releases & Executables:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases'>https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases</a></li>
+                    <li><b>GitHub Repository:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/LuckyVNN/Hall-effect-Analyst'>https://github.com/LuckyVNN/Hall-effect-Analyst</a></li>
+                    <li><b>Latest Releases & Executables:</b> <a style='color: {title_color}; font-weight: 600; text-decoration: none;' href='https://github.com/LuckyVNN/Hall-effect-Analyst/releases'>https://github.com/LuckyVNN/Hall-effect-Analyst/releases</a></li>
                 </ul>
             </div>
 
@@ -2737,12 +2737,12 @@ class HallDesktopApp(QtWidgets.QMainWindow):
         h_git_btns = QtWidgets.QHBoxLayout()
         btn_open_repo = QtWidgets.QPushButton("🌐 Open GitHub Repository")
         btn_open_repo.setStyleSheet("font-size: 12px; font-weight: bold; padding: 7px 16px; background-color: #0284c7; color: white; border-radius: 5px;")
-        btn_open_repo.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio")))
+        btn_open_repo.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/LuckyVNN/Hall-effect-Analyst")))
         h_git_btns.addWidget(btn_open_repo)
 
         btn_open_releases = QtWidgets.QPushButton("🚀 View Latest Releases")
         btn_open_releases.setStyleSheet("font-size: 12px; font-weight: bold; padding: 7px 16px; background-color: #059669; color: white; border-radius: 5px;")
-        btn_open_releases.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio/releases")))
+        btn_open_releases.clicked.connect(lambda: QtGui.QDesktopServices.openUrl(QtCore.QUrl("https://github.com/LuckyVNN/Hall-effect-Analyst/releases")))
         h_git_btns.addWidget(btn_open_releases)
 
         h_git_btns.addStretch()

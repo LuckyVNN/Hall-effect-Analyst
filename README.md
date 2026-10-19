@@ -78,7 +78,7 @@ If you use this software in your experimental research or publications, please c
   title = {Hall Effect Measurement Studio: High-Performance Transport Analysis},
   institution = {SALD Laboratory, Phenikaa University},
   year = {2026},
-  url = {https://github.com/trungpham-sald/Hall-Effect-Measurement-Studio}
+  url = {https://github.com/LuckyVNN/Hall-effect-Analyst}
 }
 ```
 
